@@ -1,0 +1,10 @@
+dev_dependencies:
+  # To change launcher icon
+  flutter_launcher_icons: ^0.8.1
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/app.png"
+  adaptive_icon_background: "#111517"
+  adaptive_icon_foreground: "assets/images/app_icon_foreground.png"

@@ -1,0 +1,10 @@
+{ 
+    "appName": "STRV - XKCD",
+
+    "generalErrorTitle": "Oops! Something went wrong!",
+    "generalEmptyTitle": "Nothings here!",
+    "generalTryAgain": "Try Again",
+
+    "appBarFeed": "Feed",
+    "appBarSettings": "Settings"
+}
