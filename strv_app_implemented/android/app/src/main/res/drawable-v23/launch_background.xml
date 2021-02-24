@@ -5,13 +5,9 @@
 
     <!-- You can insert your own image assets here -->
     <item
-        android:left="180dp"
-        android:right="180dp"
-        android:gravity="center">
+        android:width="180dp"
+        android:height="180dp"
+        android:drawable="@drawable/ic_launcher_foreground"
+        android:gravity="center" />
 
-        <bitmap
-        android:gravity="fill_horizontal|fill_vertical"
-            android:src="@drawable/ic_launcher_foreground" />
-
-    </item>
 </layer-list>
