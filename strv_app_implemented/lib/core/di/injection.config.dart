@@ -8,8 +8,8 @@ import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 
 import '../network/api_provider.dart';
-import '../../features/home/domain/usecases/get_comics_usecase.dart';
-import '../../features/home/domain/usecases/get_newest_comics_usecase.dart';
+import '../../features/home/data/usecases/get_comics_usecase.dart';
+import '../../features/home/data/usecases/get_newest_comics_usecase.dart';
 import 'injection.dart';
 import '../network/interceptors/logging_interceptor.dart';
 import '../utils/preferences.dart';

@@ -18,6 +18,7 @@ class $en extends MessageLookupByLibrary {
 		"generalEmptyTitle" : MessageLookupByLibrary.simpleMessage("Nothings here!"),
 		"generalTryAgain" : MessageLookupByLibrary.simpleMessage("Try Again"),
 		"appBarFeed" : MessageLookupByLibrary.simpleMessage("Feed"),
+		"appBarRandom" : MessageLookupByLibrary.simpleMessage("Random"),
 		"appBarSettings" : MessageLookupByLibrary.simpleMessage("Settings"),
 
   };
@@ -34,6 +35,7 @@ class $cs extends MessageLookupByLibrary {
 		"generalEmptyTitle" : MessageLookupByLibrary.simpleMessage("Nic tu není!"),
 		"generalTryAgain" : MessageLookupByLibrary.simpleMessage("Zkusit Znovu"),
 		"appBarFeed" : MessageLookupByLibrary.simpleMessage("Feed"),
+		"appBarRandom" : MessageLookupByLibrary.simpleMessage("Random"),
 		"appBarSettings" : MessageLookupByLibrary.simpleMessage("Nastavení"),
 
   };

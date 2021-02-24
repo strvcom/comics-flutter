@@ -32,42 +32,46 @@ class _HomeFeedContentWidgetState extends State<HomeFeedContentWidget> {
       headerSliverBuilder: (context, innerBoxIsScrolled) {
         return widget._sliverAppBarView;
       },
-      body: BlocListener<HomeFeedCubit, HomeFeedState>(
-        listener: (context, state) {
-          if (!state.status.isLoading) {
-            _refreshCompleter?.complete();
-            _refreshCompleter = Completer();
-          }
-        },
-        child: BlocBuilder<HomeFeedCubit, HomeFeedState>(
-          builder: (context, state) {
-            Widget body;
-            switch (state.status) {
-              case HomeFeedStatus.loading:
-              case HomeFeedStatus.success:
-                body = HomeFeedContentBodyWidget(state: state);
-                break;
-              case HomeFeedStatus.empty:
-                body = StateEmptyWidget(
-                  onReloadPress: () => context.read<HomeFeedCubit>().refreshData(),
-                );
-                break;
-              case HomeFeedStatus.error:
-              default:
-                body = StateErrorWidget(
-                  error: "Error text",
-                  onReloadPress: () => context.read<HomeFeedCubit>().refreshData(),
-                );
+      body: LayoutBuilder(
+        builder: (context, constraints) => BlocListener<HomeFeedCubit, HomeFeedState>(
+          listener: (context, state) {
+            if (!state.status.isLoading) {
+              _refreshCompleter?.complete();
+              _refreshCompleter = Completer();
             }
-
-            return RefreshIndicator(
-              onRefresh: () {
-                context.read<HomeFeedCubit>().refreshData();
-                return _refreshCompleter.future;
-              },
-              child: body,
-            );
           },
+          child: BlocBuilder<HomeFeedCubit, HomeFeedState>(
+            builder: (context, state) {
+              Widget body;
+              switch (state.status) {
+                case HomeFeedStatus.loading:
+                case HomeFeedStatus.success:
+                  body = HomeFeedContentBodyWidget(state: state);
+                  break;
+                case HomeFeedStatus.empty:
+                  body = StateEmptyWidget(
+                    constraints,
+                    () => context.read<HomeFeedCubit>().refreshData(),
+                  );
+                  break;
+                case HomeFeedStatus.error:
+                default:
+                  body = StateErrorWidget(
+                    "Error text",
+                    constraints,
+                    () => context.read<HomeFeedCubit>().refreshData(),
+                  );
+              }
+
+              return RefreshIndicator(
+                child: body,
+                onRefresh: () {
+                  context.read<HomeFeedCubit>().refreshData();
+                  return _refreshCompleter.future;
+                },
+              );
+            },
+          ),
         ),
       ),
     );

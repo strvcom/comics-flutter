@@ -8,12 +8,11 @@ import 'package:flutter/widgets.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:strv_app_implemented/core/di/injection.dart';
 import 'package:strv_app_implemented/features/home/data/models/comics.dart';
-import 'package:strv_app_implemented/features/home/domain/usecases/get_comics_usecase.dart';
-import 'package:strv_app_implemented/features/home/domain/usecases/get_newest_comics_usecase.dart';
+import 'package:strv_app_implemented/features/home/data/usecases/get_comics_usecase.dart';
+import 'package:strv_app_implemented/features/home/data/usecases/get_newest_comics_usecase.dart';
 import 'package:strv_app_implemented/widgets/shimmering_paging_controller.dart';
 
 part 'home_feed_state.dart';
-part 'home_feed_event.dart';
 
 class HomeFeedCubit extends Cubit<HomeFeedState> {
   static const PAGE_SIZE = 6;
