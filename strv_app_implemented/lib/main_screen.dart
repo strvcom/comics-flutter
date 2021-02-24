@@ -27,6 +27,11 @@ class _MainScreenState extends State<MainScreen> {
     SettingsPage(),
   ];
 
+  BorderRadius nabBarBorderRadius = BorderRadius.only(
+    topLeft: Radius.circular(DimenRes.BOTTOM_NAV_BAR_CORNER_RADIUS),
+    topRight: Radius.circular(DimenRes.BOTTOM_NAV_BAR_CORNER_RADIUS),
+  );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,57 +39,49 @@ class _MainScreenState extends State<MainScreen> {
         duration: Duration(milliseconds: 200),
         child: navigationTabsWidgets[currentTabIndex],
       ),
-      bottomNavigationBar: getBototmNavBar(context),
-    );
-  }
-
-  Widget getBototmNavBar(BuildContext context) {
-    BorderRadius nabBarBorderRadius = BorderRadius.only(
-      topLeft: Radius.circular(DimenRes.BOTTOM_NAV_BAR_CORNER_RADIUS),
-      topRight: Radius.circular(DimenRes.BOTTOM_NAV_BAR_CORNER_RADIUS),
-    );
-
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: nabBarBorderRadius,
-        boxShadow: [BoxShadow(color: Colors.black26, spreadRadius: 0, blurRadius: 10)],
-      ),
-      child: ClipRRect(
-        borderRadius: nabBarBorderRadius,
-        child: BottomNavigationBar(
-          backgroundColor: Theme.of(context).bottomAppBarColor,
-          selectedItemColor: ColorRes.COLOR_ACCENT,
-          selectedLabelStyle: TextStyle(fontWeight: FontWeight.w600, fontSize: 12.0),
-          showSelectedLabels: true,
-          showUnselectedLabels: false,
-          currentIndex: currentTabIndex,
-          type: BottomNavigationBarType.fixed,
-          onTap: onTabSelected,
-          items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              label: S.of(context).appBarFeed,
-              icon: getNavBarIcon(Icons.home),
-              activeIcon: getNavBarIconSelected(Icons.home),
-            ),
-            BottomNavigationBarItem(
-              label: S.of(context).appBarRandom,
-              icon: getNavBarIcon(Icons.list_alt_rounded),
-              activeIcon: getNavBarIconSelected(Icons.list_alt_rounded),
-            ),
-            BottomNavigationBarItem(
-              label: S.of(context).appBarSettings,
-              icon: getNavBarIcon(Icons.settings),
-              activeIcon: getNavBarIconSelected(Icons.settings),
-            ),
-          ],
+      bottomNavigationBar: Container(
+        height: 64,
+        decoration: BoxDecoration(
+          borderRadius: nabBarBorderRadius,
+          boxShadow: [BoxShadow(color: Colors.black26, spreadRadius: 0, blurRadius: 10)],
+        ),
+        child: ClipRRect(
+          borderRadius: nabBarBorderRadius,
+          child: BottomNavigationBar(
+            backgroundColor: Theme.of(context).bottomAppBarColor,
+            selectedItemColor: ColorRes.COLOR_ACCENT,
+            selectedLabelStyle: TextStyle(fontWeight: FontWeight.w600, fontSize: 12.0),
+            showSelectedLabels: true,
+            showUnselectedLabels: false,
+            currentIndex: currentTabIndex,
+            type: BottomNavigationBarType.fixed,
+            onTap: onTabSelected,
+            items: <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                label: S.of(context).appBarFeed,
+                icon: getNavBarIcon(Icons.home),
+                activeIcon: getNavBarIconSelected(Icons.home),
+              ),
+              BottomNavigationBarItem(
+                label: S.of(context).appBarRandom,
+                icon: getNavBarIcon(Icons.list_alt_rounded),
+                activeIcon: getNavBarIconSelected(Icons.list_alt_rounded),
+              ),
+              BottomNavigationBarItem(
+                label: S.of(context).appBarSettings,
+                icon: getNavBarIcon(Icons.settings),
+                activeIcon: getNavBarIconSelected(Icons.settings),
+              ),
+            ],
+          ),
         ),
       ),
     );
   }
 
-  Icon getNavBarIconSelected(IconData icon) => Icon(icon, color: ColorRes.COLOR_ACCENT, size: 24);
+  Icon getNavBarIconSelected(IconData icon) => Icon(icon, color: ColorRes.COLOR_ACCENT, size: 26);
 
-  Icon getNavBarIcon(IconData icon) => Icon(icon, size: 20);
+  Icon getNavBarIcon(IconData icon) => Icon(icon, size: 22);
 
   void onTabSelected(int index) {
     setState(() {
