@@ -1,0 +1,11 @@
+{ 
+    "appName": "STRV - XKCD",
+
+    "generalErrorTitle": "Oops! Něco se pokazilo!",
+    "generalEmptyTitle": "Nic tu není!",
+    "generalTryAgain": "Zkusit Znovu",
+
+    "appBarFeed": "Feed",
+    "appBarRandom": "Random",
+    "appBarSettings": "Nastavení"
+}
