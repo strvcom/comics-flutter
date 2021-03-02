@@ -1,8 +1,6 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:strv_app_implemented/core/config/colors.dart';
 import 'package:strv_app_implemented/core/config/dimen.dart';
 import 'package:strv_app_implemented/features/home/presentation/pages/home_feed_page.dart';
-import 'package:strv_app_implemented/features/random/presentation/cubit/random_cubit.dart';
 import 'package:strv_app_implemented/features/random/presentation/pages/random_page.dart';
 import 'package:strv_app_implemented/features/settings/presentation/pages/settings_page.dart';
 import 'package:strv_app_implemented/generated/i18n.dart';
@@ -20,10 +18,7 @@ class _MainScreenState extends State<MainScreen> {
 
   List<Widget> navigationTabsWidgets = [
     HomeFeedPage(),
-    BlocProvider(
-      create: (context) => RandomCubit(),
-      child: RandomPage(),
-    ),
+    RandomPage(),
     SettingsPage(),
   ];
 
@@ -40,39 +35,41 @@ class _MainScreenState extends State<MainScreen> {
         child: navigationTabsWidgets[currentTabIndex],
       ),
       bottomNavigationBar: Container(
-        height: 64,
         decoration: BoxDecoration(
           borderRadius: nabBarBorderRadius,
           boxShadow: [BoxShadow(color: Colors.black26, spreadRadius: 0, blurRadius: 10)],
         ),
         child: ClipRRect(
           borderRadius: nabBarBorderRadius,
-          child: BottomNavigationBar(
-            backgroundColor: Theme.of(context).bottomAppBarColor,
-            selectedItemColor: ColorRes.COLOR_ACCENT,
-            selectedLabelStyle: TextStyle(fontWeight: FontWeight.w600, fontSize: 12.0),
-            showSelectedLabels: true,
-            showUnselectedLabels: false,
-            currentIndex: currentTabIndex,
-            type: BottomNavigationBarType.fixed,
-            onTap: onTabSelected,
-            items: <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                label: S.of(context).appBarFeed,
-                icon: getNavBarIcon(Icons.home),
-                activeIcon: getNavBarIconSelected(Icons.home),
-              ),
-              BottomNavigationBarItem(
-                label: S.of(context).appBarRandom,
-                icon: getNavBarIcon(Icons.list_alt_rounded),
-                activeIcon: getNavBarIconSelected(Icons.list_alt_rounded),
-              ),
-              BottomNavigationBarItem(
-                label: S.of(context).appBarSettings,
-                icon: getNavBarIcon(Icons.settings),
-                activeIcon: getNavBarIconSelected(Icons.settings),
-              ),
-            ],
+          child: ConstrainedBox(
+            constraints: BoxConstraints(minHeight: 64),
+            child: BottomNavigationBar(
+              backgroundColor: Theme.of(context).bottomAppBarColor,
+              selectedItemColor: ColorRes.COLOR_ACCENT,
+              selectedLabelStyle: TextStyle(fontWeight: FontWeight.w600, fontSize: 12.0),
+              showSelectedLabels: true,
+              showUnselectedLabels: false,
+              currentIndex: currentTabIndex,
+              type: BottomNavigationBarType.fixed,
+              onTap: onTabSelected,
+              items: <BottomNavigationBarItem>[
+                BottomNavigationBarItem(
+                  label: S.of(context).appBarFeed,
+                  icon: getNavBarIcon(Icons.home),
+                  activeIcon: getNavBarIconSelected(Icons.home),
+                ),
+                BottomNavigationBarItem(
+                  label: S.of(context).appBarRandom,
+                  icon: getNavBarIcon(Icons.list_alt_rounded),
+                  activeIcon: getNavBarIconSelected(Icons.list_alt_rounded),
+                ),
+                BottomNavigationBarItem(
+                  label: S.of(context).appBarSettings,
+                  icon: getNavBarIcon(Icons.settings),
+                  activeIcon: getNavBarIconSelected(Icons.settings),
+                ),
+              ],
+            ),
           ),
         ),
       ),

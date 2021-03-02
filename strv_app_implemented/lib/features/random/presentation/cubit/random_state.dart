@@ -10,13 +10,16 @@ extension HomeStatusX on RandomStatus {
 }
 
 class RandomState extends Equatable {
+  final RandomStatus status;
+  final Comics comics;
+
   const RandomState({
     this.status,
     this.comics,
   });
 
-  final RandomStatus status;
-  final Comics comics;
+  @override
+  List<Object> get props => [status, comics];
 
   RandomState copyWith({
     RandomStatus status,
@@ -28,7 +31,4 @@ class RandomState extends Equatable {
       comics: comics ?? this.comics,
     );
   }
-
-  @override
-  List<Object> get props => [status, comics];
 }

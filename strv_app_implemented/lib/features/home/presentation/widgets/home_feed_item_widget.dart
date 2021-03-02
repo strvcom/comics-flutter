@@ -1,17 +1,16 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:strv_app_implemented/core/config/dimen.dart';
+import 'package:strv_app_implemented/features/home/data/models/comics.dart';
 
 class HomeFeedItemWidget extends StatelessWidget {
-  final String title;
-  final String description;
-  final String image;
+  final Comics comics;
   final Function() onTap;
 
   static const double _textHorizontalSpacing = 15;
   static const double _textVerticalSpacing = 10;
 
-  const HomeFeedItemWidget({Key key, this.title, this.description, this.image, this.onTap}) : super(key: key);
+  const HomeFeedItemWidget({Key key, this.comics, this.onTap}) : super(key: key);
 
   // Hack to display InkWell Image with Rounded corners from the network.
   // We are using stack to hack this behavior, and get ripple over whole card.
@@ -35,7 +34,7 @@ class HomeFeedItemWidget extends StatelessWidget {
                       topRight: Radius.circular(DimenRes.CARD_CORNER_SIZE),
                     ),
                     child: CachedNetworkImage(
-                      imageUrl: image,
+                      imageUrl: comics.url,
                       placeholder: (context, url) => CircularProgressIndicator(),
                       errorWidget: (context, url, error) => Icon(Icons.error),
                     ),
@@ -50,7 +49,7 @@ class HomeFeedItemWidget extends StatelessWidget {
                   0,
                 ),
                 child: Text(
-                  title,
+                  "#${comics.id}: ${comics.title}",
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: Theme.of(context).textTheme.subtitle1,
@@ -62,7 +61,7 @@ class HomeFeedItemWidget extends StatelessWidget {
                   vertical: _textVerticalSpacing,
                 ),
                 child: Text(
-                  description,
+                  comics.description,
                   maxLines: 4,
                   overflow: TextOverflow.ellipsis,
                   style: Theme.of(context).textTheme.bodyText2,

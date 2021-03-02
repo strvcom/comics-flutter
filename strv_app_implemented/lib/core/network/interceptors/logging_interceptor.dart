@@ -22,7 +22,6 @@ class LoggingInterceptor implements InterceptorContract {
   @override
   Future<ResponseData> interceptResponse({ResponseData data}) async {
     logger.d("RESPONSE <<< [${getMethodText(data.method)}] ${data.url}");
-    // logger.d("RESPONSE <<< Headers ${data.headers}");
     if (data.body.toString().isNotEmpty) {
       logger.d("RESPONSE <<< Body: ${data.body}");
     }

@@ -15,6 +15,7 @@ class RandomPage extends StatefulWidget {
 
 class _RandomPageState extends State<RandomPage> {
   Completer<void> _refreshCompleter;
+  var _refreshIndicatorKey = new GlobalKey<RefreshIndicatorState>();
 
   @override
   void initState() {
@@ -24,14 +25,15 @@ class _RandomPageState extends State<RandomPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: Scaffold(
-        appBar: AppBar(
-            title: Row(
-              children: [Spacer(), Text(S.of(context).appName, style: Theme.of(context).textTheme.headline6), Spacer()],
-            ),
-            automaticallyImplyLeading: false),
-        body: LayoutBuilder(
+    return Scaffold(
+      appBar: AppBar(
+          title: Row(
+            children: [Spacer(), Text(S.of(context).appName, style: Theme.of(context).textTheme.headline6), Spacer()],
+          ),
+          automaticallyImplyLeading: false),
+      body: BlocProvider(
+        create: (context) => RandomCubit(),
+        child: LayoutBuilder(
           builder: (context, constraints) => BlocListener<RandomCubit, RandomState>(
             listener: (context, state) {
               if (!state.status.isLoading) {
@@ -66,7 +68,7 @@ class _RandomPageState extends State<RandomPage> {
                   case RandomStatus.empty:
                     body = StateEmptyWidget(
                       constraints,
-                      () => context.read<RandomCubit>().refreshData(),
+                      () => _refreshIndicatorKey.currentState.show(),
                     );
                     break;
                   case RandomStatus.error:
@@ -74,11 +76,12 @@ class _RandomPageState extends State<RandomPage> {
                     body = StateErrorWidget(
                       "Error text",
                       constraints,
-                      () => context.read<RandomCubit>().refreshData(),
+                      () => _refreshIndicatorKey.currentState.show(),
                     );
                 }
 
                 return RefreshIndicator(
+                  key: _refreshIndicatorKey,
                   child: CustomScrollView(
                     physics: const AlwaysScrollableScrollPhysics(),
                     slivers: [

@@ -20,6 +20,10 @@ dependencies:
   shared_preferences: ^0.5.12+4
   fimber: ^0.4.4
 
+  # Database
+  hive: ^1.4.4+1
+  hive_flutter: ^0.3.1
+
   # Dependency Injection
   injectable: ^1.0.7
   get_it: ^5.0.6
@@ -44,6 +48,7 @@ dependencies:
   cupertino_icons: ^1.0.0
 
 dev_dependencies:
+  hive_generator: ^0.8.2
   build_runner: ^1.11.0
   injectable_generator: ^1.0.7
   gen_lang: ^0.1.3

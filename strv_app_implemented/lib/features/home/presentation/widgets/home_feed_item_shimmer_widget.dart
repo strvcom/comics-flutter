@@ -5,7 +5,7 @@ import 'package:strv_app_implemented/core/config/dimen.dart';
 
 class HomeFeedItemShimmerWidget extends StatelessWidget {
   static const double _textHorizontalSpacing = 15;
-  static const double _textVerticalSpacing = 12;
+  static const double _textVerticalSpacing = 10;
 
   const HomeFeedItemShimmerWidget({
     Key key,

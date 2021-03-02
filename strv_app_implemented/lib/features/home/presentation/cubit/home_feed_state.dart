@@ -10,17 +10,19 @@ extension HomeStatusX on HomeFeedStatus {
 }
 
 class HomeFeedState extends Equatable {
+  final HomeFeedStatus status;
+  final PagingController<int, Comics> comicsPagingController;
+
   const HomeFeedState({
     this.status,
     this.comicsPagingController,
   });
 
-  final HomeFeedStatus status;
-  final PagingController<int, Comics> comicsPagingController;
+  @override
+  List<Object> get props => [status, comicsPagingController];
 
   HomeFeedState copyWith({
     HomeFeedStatus status,
-    GlobalKey<RefreshIndicatorState> refreshIndicatorKey,
     PagingController<int, Comics> comicsPagingController,
   }) {
     return HomeFeedState(
@@ -28,7 +30,4 @@ class HomeFeedState extends Equatable {
       comicsPagingController: comicsPagingController ?? this.comicsPagingController,
     );
   }
-
-  @override
-  List<Object> get props => [status, comicsPagingController];
 }

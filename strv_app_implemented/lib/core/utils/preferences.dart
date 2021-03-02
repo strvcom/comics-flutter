@@ -2,7 +2,9 @@ import 'dart:async';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
-class Prefs {}
+class Prefs {
+  static const String LAST_COMICS_ID = "LAST_COMICS_ID";
+}
 
 class Preferences {
   Preferences._(this.prefs);

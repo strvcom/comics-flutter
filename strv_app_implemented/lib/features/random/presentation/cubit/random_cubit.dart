@@ -6,6 +6,7 @@ import 'package:fimber/fimber.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:strv_app_implemented/core/di/injection.dart';
+import 'package:strv_app_implemented/core/utils/preferences.dart';
 import 'package:strv_app_implemented/features/home/data/models/comics.dart';
 import 'package:strv_app_implemented/features/home/data/usecases/get_comics_usecase.dart';
 
@@ -17,7 +18,8 @@ class RandomCubit extends Cubit<RandomState> {
   }
 
   Future<void> _fetchData() async {
-    final mostRecentComicsId = 2200;
+    final mostRecentComicsId = await _getMostRecentComicsId();
+    Fimber.d("Most recent Comics ID: $mostRecentComicsId");
     emit(state.copyWith(status: RandomStatus.loading));
 
     try {
@@ -37,5 +39,10 @@ class RandomCubit extends Cubit<RandomState> {
   Future<void> refreshData() async {
     Fimber.i("Refresh Home Feed Data!");
     _fetchData();
+  }
+
+  Future<int> _getMostRecentComicsId() async {
+    final Preferences prefs = getIt<Preferences>();
+    return prefs[Prefs.LAST_COMICS_ID] ?? 2200;
   }
 }
