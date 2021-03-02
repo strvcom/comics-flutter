@@ -1,5 +1,8 @@
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:strv_app_implemented/app.dart';
 import 'package:strv_app_implemented/core/di/injection.dart';
+import 'package:strv_app_implemented/features/home/data/models/comics.dart';
 import 'package:strv_app_implemented/main_bloc_observer.dart';
 import 'package:fimber/fimber.dart';
 import 'package:flutter/foundation.dart';
@@ -19,6 +22,10 @@ void main() async {
 
   // Observe Bloc callbacks for logging
   Bloc.observer = MainBlocObserver();
+
+  // Init Hive
+  await Hive.initFlutter();
+  Hive.registerAdapter(ComicsAdapter());
 
   // Run App
   runApp(StrvApp());

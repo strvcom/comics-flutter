@@ -1,17 +1,16 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:strv_app_implemented/core/config/dimen.dart';
-import 'package:strv_app_implemented/widgets/scalable_text.dart';
+import 'package:strv_app_implemented/features/home/data/models/comics.dart';
 
 class HomeFeedItemWidget extends StatelessWidget {
-  final String title;
-  final String description;
-  final String image;
+  final Comics comics;
   final Function() onTap;
 
   static const double _textHorizontalSpacing = 15;
   static const double _textVerticalSpacing = 10;
 
-  const HomeFeedItemWidget({Key key, this.title, this.description, this.image, this.onTap}) : super(key: key);
+  const HomeFeedItemWidget({Key key, this.comics, this.onTap}) : super(key: key);
 
   // Hack to display InkWell Image with Rounded corners from the network.
   // We are using stack to hack this behavior, and get ripple over whole card.
@@ -20,60 +19,58 @@ class HomeFeedItemWidget extends StatelessWidget {
     return Card(
       elevation: 4,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(DimenRes.CARD_CORNER_SIZE)),
-      child: Container(
-        height: 400,
-        child: Stack(
-          children: <Widget>[
-            Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Container(
-                  width: double.infinity,
-                  height: 300,
+      child: Stack(
+        children: <Widget>[
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Center(
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(maxHeight: 300.0),
                   child: ClipRRect(
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(DimenRes.CARD_CORNER_SIZE),
                       topRight: Radius.circular(DimenRes.CARD_CORNER_SIZE),
                     ),
-                    child: Image.network(image, fit: BoxFit.contain),
-                  ),
-                ),
-                Flexible(
-                  child: Container(
-                    width: double.infinity,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(
-                            _textHorizontalSpacing,
-                            _textVerticalSpacing,
-                            _textHorizontalSpacing,
-                            0,
-                          ),
-                          child: Text(
-                            title,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: Theme.of(context).textTheme.subtitle1,
-                          ),
-                        ),
-                        Flexible(
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: _textHorizontalSpacing,
-                              vertical: _textVerticalSpacing,
-                            ),
-                            child: ScalableText(text: description, style: Theme.of(context).textTheme.bodyText2),
-                          ),
-                        ),
-                      ],
+                    child: CachedNetworkImage(
+                      imageUrl: comics.url,
+                      placeholder: (context, url) => CircularProgressIndicator(),
+                      errorWidget: (context, url, error) => Icon(Icons.error),
                     ),
                   ),
                 ),
-              ],
-            ),
-            Material(
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(
+                  _textHorizontalSpacing,
+                  _textVerticalSpacing,
+                  _textHorizontalSpacing,
+                  0,
+                ),
+                child: Text(
+                  "#${comics.id}: ${comics.title}",
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: Theme.of(context).textTheme.subtitle1,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: _textHorizontalSpacing,
+                  vertical: _textVerticalSpacing,
+                ),
+                child: Text(
+                  comics.description,
+                  maxLines: 4,
+                  overflow: TextOverflow.ellipsis,
+                  style: Theme.of(context).textTheme.bodyText2,
+                ),
+              ),
+            ],
+          ),
+          Positioned.fill(
+            child: Material(
               color: Colors.transparent,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(DimenRes.CARD_CORNER_SIZE),
@@ -83,8 +80,8 @@ class HomeFeedItemWidget extends StatelessWidget {
                 onTap: onTap,
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

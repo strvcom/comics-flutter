@@ -4,8 +4,8 @@ import 'package:injectable/injectable.dart';
 import 'package:strv_app_implemented/core/config/config.dart';
 import 'package:strv_app_implemented/core/di/injection.dart';
 import 'package:strv_app_implemented/core/network/api_provider.dart';
+import 'package:strv_app_implemented/features/home/data/entities/comics_dto.dart';
 import 'package:strv_app_implemented/features/home/data/models/comics.dart';
-import 'package:strv_app_implemented/features/home/domain/entities/comics_dto.dart';
 
 @injectable
 class GetNewestComicsUsecase {

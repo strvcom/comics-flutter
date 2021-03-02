@@ -33,12 +33,4 @@ class ShimmeringPagingController<PageKeyType, ItemType> extends PagingController
   appendLastPageRemovingShimmers(List<ItemType> newItems) {
     appendPageRemovingShimmers(newItems, null);
   }
-
-  void refreshKeepingData() {
-    value = PagingState<PageKeyType, ItemType>(
-      nextPageKey: firstPageKey,
-      error: null,
-      itemList: null,
-    );
-  }
 }

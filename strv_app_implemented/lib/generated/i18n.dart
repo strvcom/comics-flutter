@@ -46,6 +46,10 @@ class S {
     return Intl.message("Feed", name: 'appBarFeed');
   }
 
+  String get appBarRandom {
+    return Intl.message("Random", name: 'appBarRandom');
+  }
+
   String get appBarSettings {
     return Intl.message("Settings", name: 'appBarSettings');
   }
