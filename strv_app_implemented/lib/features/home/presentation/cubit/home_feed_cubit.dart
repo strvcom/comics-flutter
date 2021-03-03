@@ -7,10 +7,10 @@ import 'package:hive/hive.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:strv_app_implemented/core/di/injection.dart';
 import 'package:strv_app_implemented/core/utils/preferences.dart';
+import 'package:strv_app_implemented/core/utils/shimmering_paging_controller.dart';
 import 'package:strv_app_implemented/features/home/data/models/comics.dart';
 import 'package:strv_app_implemented/features/home/data/usecases/get_comics_usecase.dart';
 import 'package:strv_app_implemented/features/home/data/usecases/get_newest_comics_usecase.dart';
-import 'package:strv_app_implemented/widgets/shimmering_paging_controller.dart';
 
 part 'home_feed_state.dart';
 

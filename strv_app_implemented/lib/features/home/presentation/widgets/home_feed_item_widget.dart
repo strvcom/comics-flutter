@@ -1,16 +1,16 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:strv_app_implemented/core/config/dimen.dart';
+import 'package:strv_app_implemented/features/comics_detail/presentation/pages/comics_detail_page.dart';
 import 'package:strv_app_implemented/features/home/data/models/comics.dart';
 
 class HomeFeedItemWidget extends StatelessWidget {
   final Comics comics;
-  final Function() onTap;
 
   static const double _textHorizontalSpacing = 15;
   static const double _textVerticalSpacing = 10;
 
-  const HomeFeedItemWidget({Key key, this.comics, this.onTap}) : super(key: key);
+  const HomeFeedItemWidget({Key key, this.comics}) : super(key: key);
 
   // Hack to display InkWell Image with Rounded corners from the network.
   // We are using stack to hack this behavior, and get ripple over whole card.
@@ -77,7 +77,12 @@ class HomeFeedItemWidget extends StatelessWidget {
               ),
               child: InkWell(
                 borderRadius: BorderRadius.circular(DimenRes.CARD_CORNER_SIZE),
-                onTap: onTap,
+                onTap: () {
+                  Navigator.of(context).pushNamed(
+                    ComicsDetailPage.ROUTE_NAME,
+                    arguments: ComicsDetailRouteArguments(comics.id, comics.title, comics.description, comics.url),
+                  );
+                },
               ),
             ),
           ),

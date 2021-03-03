@@ -1,3 +1,3 @@
-class Config {
-  static const BASE_URL = 'https://xkcd.com';
-}
+// class Config {
+//   static const BASE_URL = 'https://xkcd.com';
+// }
