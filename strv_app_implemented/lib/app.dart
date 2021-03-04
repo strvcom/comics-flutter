@@ -43,7 +43,7 @@ class _StrvAppState extends State<StrvApp> {
         scaffoldBackgroundColor: ColorRes.COLOR_BACKGROUND,
         primaryColor: ColorRes.COLOR_ACCENT,
         primaryColorDark: ColorRes.COLOR_ACCENT,
-        cursorColor: ColorRes.COLOR_ACCENT,
+        textSelectionTheme: TextSelectionThemeData(cursorColor: ColorRes.COLOR_ACCENT),
         bottomAppBarColor: ColorRes.COLOR_APP_BAR,
         buttonTheme: getButtonTheme(),
         cardTheme: getCardTheme(),
@@ -76,6 +76,7 @@ class _StrvAppState extends State<StrvApp> {
         elevation: 0,
         color: ColorRes.COLOR_APP_BAR,
         textTheme: textTheme,
+        brightness: Brightness.dark,
       ),
     );
   }
@@ -109,6 +110,7 @@ class _StrvAppState extends State<StrvApp> {
         elevation: 0,
         color: ColorRes.COLOR_APP_BAR_DARK,
         textTheme: textTheme,
+        brightness: Brightness.dark,
       ),
       bottomAppBarColor: ColorRes.COLOR_APP_BAR_DARK,
     );

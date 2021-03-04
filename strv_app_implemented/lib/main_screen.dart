@@ -47,6 +47,7 @@ class _MainScreenState extends State<MainScreen> {
               backgroundColor: Theme.of(context).bottomAppBarColor,
               selectedItemColor: ColorRes.COLOR_ACCENT,
               selectedLabelStyle: TextStyle(fontWeight: FontWeight.w600, fontSize: 12.0),
+              unselectedItemColor: ColorRes.COLOR_GRAY,
               showSelectedLabels: true,
               showUnselectedLabels: false,
               currentIndex: currentTabIndex,

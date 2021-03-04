@@ -28,7 +28,11 @@ class _RandomPageState extends State<RandomPage> {
     return Scaffold(
       appBar: AppBar(
           title: Row(
-            children: [Spacer(), Text(S.of(context).appName, style: Theme.of(context).textTheme.headline6), Spacer()],
+            children: [
+              Spacer(),
+              Text(S.of(context).appBarRandom, style: Theme.of(context).textTheme.headline6),
+              Spacer(),
+            ],
           ),
           automaticallyImplyLeading: false),
       body: BlocProvider(
