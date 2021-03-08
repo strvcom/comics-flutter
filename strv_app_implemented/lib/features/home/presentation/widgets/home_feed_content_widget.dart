@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
-import 'package:strv_app_implemented/core/config/dimen.dart';
+import 'package:strv_app_implemented/core/resources/dimen.dart';
 import 'package:strv_app_implemented/features/home/data/models/comics.dart';
 import 'package:strv_app_implemented/features/home/presentation/cubit/home_feed_cubit.dart';
 import 'package:strv_app_implemented/features/home/presentation/widgets/home_feed_item_shimmer_widget.dart';

@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:strv_app_implemented/core/config/dimen.dart';
+import 'package:strv_app_implemented/core/resources/dimen.dart';
 import 'package:strv_app_implemented/features/comics_detail/presentation/pages/comics_detail_page.dart';
 import 'package:strv_app_implemented/features/home/data/models/comics.dart';
 

@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:strv_app_implemented/core/config/assets.dart';
+import 'package:strv_app_implemented/core/resources/assets.dart';
 import 'package:strv_app_implemented/features/home/presentation/cubit/home_feed_cubit.dart';
 import 'package:strv_app_implemented/features/home/presentation/widgets/home_feed_content_widget.dart';
 import 'package:strv_app_implemented/generated/i18n.dart';

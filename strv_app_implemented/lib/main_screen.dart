@@ -1,5 +1,5 @@
-import 'package:strv_app_implemented/core/config/colors.dart';
-import 'package:strv_app_implemented/core/config/dimen.dart';
+import 'package:strv_app_implemented/core/resources/colors.dart';
+import 'package:strv_app_implemented/core/resources/dimen.dart';
 import 'package:strv_app_implemented/features/home/presentation/pages/home_feed_page.dart';
 import 'package:strv_app_implemented/features/random/presentation/pages/random_page.dart';
 import 'package:strv_app_implemented/features/settings/presentation/pages/settings_page.dart';

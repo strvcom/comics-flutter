@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:strv_app_implemented/core/config/dimen.dart';
+import 'package:strv_app_implemented/core/resources/dimen.dart';
 import 'package:strv_app_implemented/features/settings/presentation/widgets/settings_divider_widget.dart';
 import 'package:strv_app_implemented/features/settings/presentation/widgets/settings_item_widget.dart';
 import 'package:strv_app_implemented/generated/i18n.dart';

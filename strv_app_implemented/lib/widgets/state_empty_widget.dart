@@ -1,4 +1,4 @@
-import 'package:strv_app_implemented/core/config/colors.dart';
+import 'package:strv_app_implemented/core/resources/colors.dart';
 import 'package:strv_app_implemented/generated/i18n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';

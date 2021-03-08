@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:strv_app_implemented/core/config/dimen.dart';
+import 'package:strv_app_implemented/core/resources/dimen.dart';
 
 class HomeFeedItemShimmerWidget extends StatelessWidget {
   static const double _textHorizontalSpacing = 15;

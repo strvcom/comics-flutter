@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:photo_view/photo_view.dart';
-import 'package:strv_app_implemented/core/config/colors.dart';
-import 'package:strv_app_implemented/core/config/dimen.dart';
+import 'package:strv_app_implemented/core/resources/colors.dart';
+import 'package:strv_app_implemented/core/resources/dimen.dart';
 
 class ComicsDetailContentWidget extends StatelessWidget {
   const ComicsDetailContentWidget(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:strv_app_implemented/core/config/colors.dart';
+import 'package:strv_app_implemented/core/resources/colors.dart';
 
 class SettingsItemWidget extends StatelessWidget {
   const SettingsItemWidget({

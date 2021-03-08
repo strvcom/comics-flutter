@@ -1,5 +1,5 @@
-import 'package:strv_app_implemented/core/config/colors.dart';
-import 'package:strv_app_implemented/core/config/dimen.dart';
+import 'package:strv_app_implemented/core/resources/colors.dart';
+import 'package:strv_app_implemented/core/resources/dimen.dart';
 import 'package:strv_app_implemented/generated/i18n.dart';
 import 'package:strv_app_implemented/router/app_router.dart';
 import 'package:flutter/material.dart';

@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:injectable/injectable.dart';
-import 'package:strv_app_implemented/core/config/config.dart';
+import 'package:strv_app_implemented/core/resources/config.dart';
 import 'package:strv_app_implemented/core/di/injection.dart';
 import 'package:strv_app_implemented/core/network/api_provider.dart';
 import 'package:strv_app_implemented/features/home/data/entities/comics_dto.dart';
