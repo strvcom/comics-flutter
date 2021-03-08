@@ -1,5 +1,4 @@
-import 'package:strv_app_implemented/core/config/colors.dart';
-import 'package:strv_app_implemented/generated/i18n.dart';
+import 'package:strv_app_implemented/core/resources/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -26,7 +25,7 @@ class StateEmptyWidget extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: Text(
-                S.of(context).generalEmptyTitle,
+                "Nothings here!",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: ColorRes.COLOR_GRAY,
@@ -37,7 +36,7 @@ class StateEmptyWidget extends StatelessWidget {
             ),
             SizedBox(height: 100),
             ElevatedButton(
-              child: Text(S.of(context).generalTryAgain),
+              child: Text("Try Again"),
               onPressed: () {
                 onReloadPress();
               },

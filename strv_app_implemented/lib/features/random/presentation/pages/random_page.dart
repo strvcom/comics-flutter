@@ -2,9 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:strv_app_implemented/features/comics_detail/presentation/widgets/comics_detail_content_widget.dart';
 import 'package:strv_app_implemented/features/random/presentation/cubit/random_cubit.dart';
-import 'package:strv_app_implemented/generated/i18n.dart';
+import 'package:strv_app_implemented/features/random/presentation/widgets/comics_detail_content_widget.dart';
 import 'package:strv_app_implemented/widgets/state_empty_widget.dart';
 import 'package:strv_app_implemented/widgets/state_error_widget.dart';
 
@@ -27,14 +26,8 @@ class _RandomPageState extends State<RandomPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Row(
-            children: [
-              Spacer(),
-              Text(S.of(context).appBarRandom, style: Theme.of(context).textTheme.headline6),
-              Spacer(),
-            ],
-          ),
-          automaticallyImplyLeading: false),
+        title: Row(children: [Spacer(), Text("Random", style: Theme.of(context).textTheme.headline6), Spacer()]),
+      ),
       body: BlocProvider(
         create: (context) => RandomCubit(),
         child: LayoutBuilder(
@@ -70,18 +63,11 @@ class _RandomPageState extends State<RandomPage> {
 
                     break;
                   case RandomStatus.empty:
-                    body = StateEmptyWidget(
-                      constraints,
-                      () => _refreshIndicatorKey.currentState.show(),
-                    );
+                    body = StateEmptyWidget(constraints, () => _refreshIndicatorKey.currentState.show());
                     break;
                   case RandomStatus.error:
                   default:
-                    body = StateErrorWidget(
-                      "Error text",
-                      constraints,
-                      () => _refreshIndicatorKey.currentState.show(),
-                    );
+                    body = StateErrorWidget("Error text", constraints, () => _refreshIndicatorKey.currentState.show());
                 }
 
                 return RefreshIndicator(
@@ -105,13 +91,5 @@ class _RandomPageState extends State<RandomPage> {
         ),
       ),
     );
-  }
-
-  Widget getSliverAppBarView(context) {
-    return SliverAppBar(
-        pinned: true,
-        title: Row(
-          children: [Spacer(), Text(S.of(context).appName, style: Theme.of(context).textTheme.headline6), Spacer()],
-        ));
   }
 }
