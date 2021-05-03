@@ -1,4 +1,4 @@
-# STRV Flutter
+# STRV Flutter Workshop: Comics App
 
 **Warning:** This workshop is using Flutter 2!
 
