@@ -8,7 +8,7 @@ class LoggingInterceptor implements InterceptorContract {
   final FimberLog logger = FimberLog("Network");
 
   @override
-  Future<RequestData> interceptRequest({RequestData data}) async {
+  Future<RequestData> interceptRequest({required RequestData data}) async {
     logger.d("REQUEST >>> [${getMethodText(data.method)}] ${data.baseUrl}");
     logger.d("REQUEST >>> Headers ${data.headers}");
     if (data.body.toString().isNotEmpty) {
@@ -18,7 +18,7 @@ class LoggingInterceptor implements InterceptorContract {
   }
 
   @override
-  Future<ResponseData> interceptResponse({ResponseData data}) async {
+  Future<ResponseData> interceptResponse({required ResponseData data}) async {
     logger.d("RESPONSE <<< [${getMethodText(data.method)}] ${data.url}");
     if (data.body.toString().isNotEmpty) {
       logger.d("RESPONSE <<< Body: ${data.body}");
@@ -26,5 +26,5 @@ class LoggingInterceptor implements InterceptorContract {
     return data;
   }
 
-  String getMethodText(Method data) => data.toString().replaceFirst("Method.", "");
+  String getMethodText(Method? data) => data.toString().replaceFirst("Method.", "");
 }

@@ -1,4 +1,4 @@
-import 'package:strv_app_implemented/app.dart';
+import 'package:strv_app_implemented/app/app.dart';
 import 'package:strv_app_implemented/main_bloc_observer.dart';
 import 'package:fimber/fimber.dart';
 import 'package:flutter/foundation.dart';
@@ -13,5 +13,5 @@ void main() {
   Bloc.observer = MainBlocObserver();
 
   // Run App
-  runApp(StrvApp());
+  runApp(XKCDApp());
 }

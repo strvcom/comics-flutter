@@ -1,5 +1,7 @@
 # STRV Flutter
 
+**Warning:** This workshop is using Flutter 2!
+
 ## Prerequisites
 
 You can install flutter using brew: `brew install --cask flutter`. In this case you should be able to skip steps 1 - 3.
@@ -16,8 +18,8 @@ You can install flutter using brew: `brew install --cask flutter`. In this case 
   - Dart
 
   Recommended:
-  - Awesome Flutter SNippets
-  - bloc
+  - Awesome Flutter Snippets
+  - Bloc
   - Bracket Pair Colorizer
   - Flutter Feature scaffolding
   
@@ -58,14 +60,19 @@ You should be able to easily check that by going into propriate directory and ru
 
 # Helpful stuff
 
+## Resources - Rename app
+```
+flutter pub run rename --appname XKCD-Workshop -t android,ios
+```
+
 ## Resources - Generate new app icon
 ```
 flutter pub run flutter_launcher_icons:main
 ```
 
-## Resources - Rename app
+## Resources - Generate splash screen
 ```
-flutter pub run flutter_launcher_name:main
+flutter pub run flutter_native_splash:create
 ```
 
 ## Developed by

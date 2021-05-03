@@ -7,15 +7,15 @@ import 'package:http_interceptor/models/response_data.dart';
 
 class HeaderInterceptor implements InterceptorContract {
   @override
-  Future<RequestData> interceptRequest({RequestData data}) async {
+  Future<RequestData> interceptRequest({required RequestData data}) async {
     try {
       data.headers[HttpHeaders.contentTypeHeader] = "application/json";
     } catch (e) {
-      Fimber.e(e);
+      Fimber.e(e.toString());
     }
     return data;
   }
 
   @override
-  Future<ResponseData> interceptResponse({ResponseData data}) async => data;
+  Future<ResponseData> interceptResponse({required ResponseData data}) async => data;
 }
